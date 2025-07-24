@@ -17,7 +17,7 @@ public interface ObjetivoEspecificoRepository extends JpaRepository<ObjetivoEspe
 										   QuerydslPredicateExecutor<ObjetivoEspecifico>,
 										   QuerydslBinderCustomizer<QObjetivoEspecifico>{
     @Override
-    default public void customize(QuerydslBindings bindings, QObjetivoEspecifico root) {
+    default void customize(QuerydslBindings bindings, QObjetivoEspecifico root) {
         bindings.bind(String.class).first((StringPath path, String value) -> path.containsIgnoreCase(value));
     }
 	
